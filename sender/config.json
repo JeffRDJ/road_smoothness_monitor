@@ -1,0 +1,8 @@
+{
+    "target_ip": "127.0.0.1",
+    "target_port": 8080,
+    "local_ip": "0.0.0.0",
+    "local_port": 0,
+    "buffer_capacity": 100,
+    "check_interval": 0.01
+}

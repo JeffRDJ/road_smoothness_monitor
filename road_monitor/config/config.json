@@ -1,0 +1,8 @@
+{
+    "target_ip": "255.255.255.255",
+    "target_port":"55555",
+    "local_ip": "192.168.1.102",
+    "local_port": 55555,
+    "buffer_capacity": 1000,
+    "check_interval": 0.01
+}
