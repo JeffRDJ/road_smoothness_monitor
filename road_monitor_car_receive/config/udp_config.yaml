@@ -1,0 +1,4 @@
+# UDP 接收配置
+udp_port: 55555
+target_ip: "0.0.0.0"
+

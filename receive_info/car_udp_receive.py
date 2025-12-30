@@ -6,6 +6,7 @@ import sys
 import os
 
 
+# roslaunch imu_launch imu_msg.launch
 def start_receiver():
     # 确保端口与发送端 JSON 配置中的 target_port 一致
     port = 55555
@@ -41,6 +42,7 @@ def start_receiver():
             packet = json.loads(raw_data.decode('utf-8'))
             received_data = packet.get("data", {})
             received_hash = packet.get("hash", "")
+            print("hash: " , received_hash if received_hash else '')
 
             # 3. 本地计算哈希进行比对 (注意：Python 3 默认字符处理与 Python 2 不同)
             # 使用与发送端完全一致的序列化参数
@@ -62,10 +64,11 @@ def start_receiver():
 
             # 5. 打印输出
             Damage_rate = (corrupted_count / total_received) * 100
-            print('Damage_rate:' , Damage_rate,'%',sep="")
+            print('Damage_rate:', Damage_rate, '%', sep="")
             print(f"{status} {info} | 来自: {addr[0]}")
-            print('received_data',received_data)
-
+            print('received_data', received_data)
+            if received_data['status'] == 'Very Rough / Bump':
+                print("路面可能出现坑洼，请相关部门及时检修！")
         except KeyboardInterrupt:
             print("\n用户终止程序。")
             break

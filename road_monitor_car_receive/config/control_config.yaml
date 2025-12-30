@@ -1,0 +1,5 @@
+normal_speed: 0.4
+moderate_speed: 0.25
+bump_speed: 0.1
+moderate_threshold: 0.4
+bump_threshold: 0.8

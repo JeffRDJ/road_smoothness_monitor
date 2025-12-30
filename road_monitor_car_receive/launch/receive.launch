@@ -1,0 +1,9 @@
+<launch>
+    <node pkg="road_monitor_car_receive" type="udp_receiver_node.py" name="road_udp_bridge" output="screen">
+        <rosparam command="load" file="$(find road_monitor_car_receive)/config/udp_config.yaml" />
+    </node>
+
+    <node pkg="road_monitor_car_receive" type="road_adaptive_control_node" name="speed_controller" output="screen">
+        <rosparam command="load" file="$(find road_monitor_car_receive)/config/control_config.yaml" />
+    </node>
+</launch>
